@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const signup = async (req, res, next) => {
   console.log(req.body);
-  const { username, password, email, mobno } = req.body;
+  const { username, password } = req.body;
   await owner.query("select * from owners", (err, result) => {
     if (err) {
       console.log(err);
@@ -22,7 +22,7 @@ const signup = async (req, res, next) => {
           res.json({ message: "User already exists" });
         } else {
           owner.query(
-            `INSERT INTO owners (username, password, email, mobno) VALUES ( '${username}', '${password}', '${email}', ${mobno}`,
+            `INSERT INTO owners (username, password) VALUES ( '${username}', '${password}'`,
             (err, result) => {
               if (err) {
                 console.log(err);

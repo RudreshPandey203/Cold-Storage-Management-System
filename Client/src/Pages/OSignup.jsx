@@ -14,7 +14,7 @@ export default function OSignup() {
     // This will prevent page refresh
     e.preventDefault();
     try {
-      await fetch(`${URL_ORIGIN}/customers/signup`, {
+      await fetch(`${URL_ORIGIN}/owners/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function OSignup() {
   return (
     <div className="back">
       <form
-        onSubmit={submit}
+        onSubmit={handleSubmit}
         style={{ display: "flex", flexDirection: "column" }}
       >
         <label htmlFor="username">Username</label>
